@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 108 78 255;
+    --background: 10 10 11;
+    --foreground: 255 255 255;
+  }
+
+  body {
+    @apply bg-surface text-white antialiased selection:bg-primary/30;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-premium rounded-[2.5rem];
+  }
+
+  .nav-pill {
+    @apply fixed bottom-8 left-1/2 -translate-x-1/2 w-[92%] max-w-sm glass-card py-3 px-6 flex justify-between items-center z-50;
+    @apply border-white/5 bg-black/40;
+  }
+
+  .btn-premium {
+    @apply relative overflow-hidden bg-premium-gradient text-white font-bold py-4 px-8 rounded-2xl transition-all active:scale-[0.98] shadow-glow;
+  }
+
+  .input-premium {
+    @apply w-full bg-white/[0.05] border border-white/10 rounded-2xl py-4 px-6 text-white outline-none focus:border-primary/50 transition-all placeholder:text-white/20;
+  }
+}
+
+/* Custom Scroll Behavior for Reels Style */
+.reels-container {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.reels-container::-webkit-scrollbar {
+  display: none;
+}
+
+.reel-item {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.glow-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(108, 78, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  z-index: -1;
+}
+
+.haptic-feedback:active {
+  transform: scale(0.96);
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option-reveal {
+  animation: reveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
