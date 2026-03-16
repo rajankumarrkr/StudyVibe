@@ -6,6 +6,7 @@ import OnboardingPage from './pages/OnboardingPage';
 import Feed from './pages/Feed';
 import Dashboard from './pages/Dashboard';
 import UploadPage from './pages/UploadPage';
+import ProfilePage from './pages/ProfilePage';
 import Navbar from './components/Navbar';
 
 const App = () => {
@@ -23,7 +24,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-surface text-white">
+      <div className="min-h-screen text-content">
         {isAuthenticated && !showOnboarding && <Navbar />}
         <Routes>
           <Route path="/login" element={!isAuthenticated ? <AuthPage type="login" /> : <Navigate to="/" />} />
@@ -39,7 +40,7 @@ const App = () => {
           <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="/upload" element={isAuthenticated ? <UploadPage /> : <Navigate to="/login" />} />
           <Route path="/bookmarks" element={isAuthenticated ? <div className="p-10">Bookmarks Coming Soon</div> : <Navigate to="/login" />} />
-          <Route path="/profile" element={isAuthenticated ? <div className="p-10">Profile Coming Soon</div> : <Navigate to="/login" />} />
+          <Route path="/profile" element={isAuthenticated ? <ProfilePage /> : <Navigate to="/login" />} />
         </Routes>
       </div>
     </Router>

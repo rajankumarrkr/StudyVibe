@@ -33,20 +33,20 @@ const MCQCard = ({ question }) => {
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: false, amount: 0.5 }}
-                className="w-full max-w-md glass-card p-8 relative flex flex-col min-h-[75vh] border-white/5 bg-white/[0.02]"
+                className="w-full max-w-md glass-card p-8 relative flex flex-col min-h-[75vh]"
             >
                 {/* Floating Side Actions */}
                 <div className="absolute right-[-10px] bottom-32 flex flex-col gap-6 z-10">
-                    <button className="w-12 h-12 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white/70 haptic-feedback">
+                    <button className="w-12 h-12 rounded-full glass-card backdrop-blur-xl border border-overlay/20 flex items-center justify-center text-content/70 haptic-feedback">
                         <Bookmark size={22} />
                     </button>
-                    <button className="w-12 h-12 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white/70 haptic-feedback">
+                    <button className="w-12 h-12 rounded-full glass-card backdrop-blur-xl border border-overlay/20 flex items-center justify-center text-content/70 haptic-feedback">
                         <MessageCircle size={22} />
                     </button>
-                    <button className="w-12 h-12 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white/70 haptic-feedback">
+                    <button className="w-12 h-12 rounded-full glass-card backdrop-blur-xl border border-overlay/20 flex items-center justify-center text-content/70 haptic-feedback">
                         <Share2 size={22} />
                     </button>
-                    <button className="w-12 h-12 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white/70 haptic-feedback">
+                    <button className="w-12 h-12 rounded-full glass-card backdrop-blur-xl border border-overlay/20 flex items-center justify-center text-content/70 haptic-feedback">
                         <MoreVertical size={22} />
                     </button>
                 </div>
@@ -57,14 +57,14 @@ const MCQCard = ({ question }) => {
                         {question.subject[0]}
                     </div>
                     <div>
-                        <span className="block text-sm font-bold text-white tracking-wide uppercase">{question.subject}</span>
-                        <span className="text-xs text-white/30 font-medium">{question.exam || 'General'}</span>
+                        <span className="block text-sm font-bold text-content tracking-wide uppercase">{question.subject}</span>
+                        <span className="text-xs text-content/30 font-medium">{question.exam || 'General'}</span>
                     </div>
                 </div>
 
                 {/* Question Area */}
                 <div className="flex-1 mb-8 overflow-y-auto hide-scrollbar">
-                    <h2 className="text-2xl md:text-3xl font-bold leading-[1.3] text-white/95 tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-bold leading-[1.3] text-content tracking-tight">
                         {question.question}
                     </h2>
                 </div>
@@ -91,14 +91,14 @@ const MCQCard = ({ question }) => {
                                             ? 'bg-red-500/20 border-red-500/50 text-red-400'
                                             : isSelected
                                                 ? 'bg-primary/20 border-primary/50 text-primary-300'
-                                                : 'bg-white/[0.03] border-white/5 text-white/60 hover:bg-white/10 hover:border-white/20'
+                                                : 'bg-overlay/40 border-overlay/20 text-content/60 hover:bg-overlay/60 hover:border-overlay/40'
                                 } border-2`}
                             >
                                 <div className={`flex items-center justify-center w-8 h-8 rounded-lg border-2 font-black text-xs transition-all ${
                                     isCorrect ? 'bg-green-500 border-green-500 text-white' : 
                                     isWrong ? 'bg-red-500 border-red-500 text-white' : 
                                     isSelected ? 'bg-primary border-primary text-white' :
-                                    'border-white/10 text-white/20'
+                                    'border-overlay/40 text-content/20'
                                 }`}>
                                     {option.key}
                                 </div>
@@ -116,11 +116,11 @@ const MCQCard = ({ question }) => {
                         <motion.div 
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
-                            className="mt-6 pt-6 border-t border-white/5"
+                            className="mt-6 pt-6 border-t border-overlay/10"
                         >
                             <div className="bg-primary/5 rounded-2xl p-5 border border-primary/10">
                                 <p className="text-xs font-black uppercase tracking-widest text-primary/60 mb-2">Deep Dive</p>
-                                <p className="text-[13px] text-white/50 leading-relaxed font-medium">
+                                <p className="text-[13px] text-content/50 leading-relaxed font-medium">
                                     {question.explanation}
                                 </p>
                             </div>

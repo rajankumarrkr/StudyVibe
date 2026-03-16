@@ -4,9 +4,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        'surface-nav': 'rgb(var(--color-surface-nav) / <alpha-value>)',
+        content: 'rgb(var(--color-content) / <alpha-value>)',
+        overlay: 'rgb(var(--color-overlay) / <alpha-value>)',
         primary: {
           DEFAULT: '#6C4EFF',
           50: '#f0eeff',
@@ -20,7 +25,6 @@ export default {
           800: '#4122bc',
           900: '#361e96',
         },
-        surface: '#0A0A0B',
         accent: {
           neon: '#00F0FF',
           violet: '#8B5CF6'

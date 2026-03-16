@@ -36,14 +36,14 @@ const Dashboard = () => {
             
             <header className="mb-10 flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-black text-white tracking-tighter">My Progress</h1>
-                    <p className="text-white/30 text-sm font-bold uppercase tracking-widest mt-1">Season 1 • Sprint Analyst</p>
+                    <h1 className="text-3xl font-black text-content tracking-tighter">My Progress</h1>
+                    <p className="text-content/30 text-sm font-bold uppercase tracking-widest mt-1">Season 1 • Sprint Analyst</p>
                 </div>
                 <div className="flex gap-2">
-                    <button className="w-11 h-11 glass-card border-none flex items-center justify-center text-white/50 haptic-feedback">
+                    <button className="w-11 h-11 glass-card border-none flex items-center justify-center text-content/50 haptic-feedback">
                         <History size={20} />
                     </button>
-                    <button className="w-11 h-11 glass-card border-none flex items-center justify-center text-white/50 haptic-feedback">
+                    <button className="w-11 h-11 glass-card border-none flex items-center justify-center text-content/50 haptic-feedback">
                         <BookMarked size={20} />
                     </button>
                 </div>
@@ -56,27 +56,27 @@ const Dashboard = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: i * 0.1 }}
-                        className={`p-6 rounded-[2rem] bg-gradient-to-br ${card.color} border border-white/5 haptic-feedback`}
+                        className={`p-6 rounded-[2rem] bg-gradient-to-br ${card.color} border border-overlay/10 haptic-feedback`}
                     >
-                        <div className={`w-10 h-10 rounded-xl bg-black/20 flex items-center justify-center mb-4 ${card.iconColor}`}>
+                        <div className={`w-10 h-10 rounded-xl bg-overlay/40 flex items-center justify-center mb-4 ${card.iconColor}`}>
                             {card.icon}
                         </div>
-                        <p className="text-white/30 text-xs font-black uppercase tracking-widest mb-1">{card.label}</p>
-                        <p className="text-2xl font-black text-white">{card.value}</p>
+                        <p className="text-content/30 text-xs font-black uppercase tracking-widest mb-1">{card.label}</p>
+                        <p className="text-2xl font-black text-content">{card.value}</p>
                         <p className={`text-[10px] font-bold mt-2 ${card.iconColor}`}>{card.trend}</p>
                     </motion.div>
                 ))}
             </div>
 
             <section className="glass-card p-8 mb-8">
-                <h3 className="text-lg font-black text-white mb-8 tracking-tight">Subject Proficiency</h3>
+                <h3 className="text-lg font-black text-content mb-8 tracking-tight">Subject Proficiency</h3>
                 <div className="h-64">
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={subjectData}>
-                            <XAxis dataKey="_id" stroke="rgba(255,255,255,0.2)" fontSize={11} fontWeight="bold" tickLine={false} axisLine={false} />
+                            <XAxis dataKey="_id" stroke="rgb(var(--color-content) / 0.2)" fontSize={11} fontWeight="bold" tickLine={false} axisLine={false} />
                             <Tooltip 
-                                cursor={{ fill: 'rgba(255,255,255,0.05)' }}
-                                contentStyle={{ backgroundColor: '#0f172a', border: 'none', borderRadius: '16px', fontWeight: 'bold' }}
+                                cursor={{ fill: 'rgb(var(--color-content) / 0.05)' }}
+                                contentStyle={{ backgroundColor: 'rgb(var(--color-surface))', border: '1px solid rgb(var(--color-overlay) / 0.1)', borderRadius: '16px', fontWeight: 'bold' }}
                             />
                             <Bar dataKey="correct" radius={[8, 8, 8, 8]} barSize={32}>
                                 {subjectData.map((entry, index) => (
@@ -91,15 +91,15 @@ const Dashboard = () => {
             <div className="grid grid-cols-2 gap-4">
                 <div className="glass-card p-6 flex flex-col items-center justify-center text-center">
                     <div className="w-16 h-16 rounded-full border-4 border-primary flex items-center justify-center mb-3 shadow-glow">
-                        <span className="text-md font-black text-white">{stats.accuracy}%</span>
+                        <span className="text-md font-black text-content">{stats.accuracy}%</span>
                     </div>
-                    <p className="text-xs font-bold text-white/40">Global Rank</p>
+                    <p className="text-xs font-bold text-content/40">Global Rank</p>
                 </div>
                 <div className="glass-card p-6 flex flex-col items-center justify-center text-center">
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3">
                         <Zap size={24} className="text-primary-300" />
                     </div>
-                    <p className="text-xs font-bold text-white/40">7 Day Active</p>
+                    <p className="text-xs font-bold text-content/40">7 Day Active</p>
                 </div>
             </div>
         </div>

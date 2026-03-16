@@ -20,7 +20,7 @@ const AuthPage = ({ type }) => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden bg-surface">
+        <div className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden">
             <div className="glow-background" />
             
             <motion.div 
@@ -32,23 +32,23 @@ const AuthPage = ({ type }) => {
                     <motion.div 
                         initial={{ scale: 0.8 }}
                         animate={{ scale: 1 }}
-                        className="w-20 h-20 bg-premium-gradient rounded-[2rem] mx-auto mb-6 flex items-center justify-center shadow-glow shadow-primary/40"
+                        className="w-20 h-20 bg-premium-gradient rounded-[2rem] mx-auto mb-6 flex items-center justify-center shadow-glow shadow-primary/20"
                     >
                         <h1 className="text-3xl font-black text-white italic">SV</h1>
                     </motion.div>
-                    <h1 className="text-4xl font-extrabold tracking-tighter text-white">
+                    <h1 className="text-4xl font-extrabold tracking-tighter text-content">
                         Study<span className="text-primary italic">Vibe</span>
                     </h1>
-                    <p className="text-white/30 font-bold uppercase tracking-widest text-[10px] mt-2">
+                    <p className="text-content/30 font-bold uppercase tracking-widest text-[10px] mt-2">
                         {isLogin ? 'Ascend to Greatness' : 'Join the Elite Scholars'}
                     </p>
                 </div>
 
-                <div className="glass-card p-8 border-white/5 bg-white/[0.02]">
+                <div className="glass-card p-8">
                     <form onSubmit={handleSubmit} className="space-y-5">
                         {!isLogin && (
                             <div className="relative group">
-                                <UserIcon className="absolute left-5 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-primary transition-colors" size={20} />
+                                <UserIcon className="absolute left-5 top-1/2 -translate-y-1/2 text-content/20 group-focus-within:text-primary transition-colors" size={20} />
                                 <input
                                     type="text"
                                     required
@@ -60,7 +60,7 @@ const AuthPage = ({ type }) => {
                             </div>
                         )}
                         <div className="relative group">
-                            <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-primary transition-colors" size={20} />
+                            <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-content/20 group-focus-within:text-primary transition-colors" size={20} />
                             <input
                                 type="email"
                                 required
@@ -71,7 +71,7 @@ const AuthPage = ({ type }) => {
                             />
                         </div>
                         <div className="relative group">
-                            <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-primary transition-colors" size={20} />
+                            <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-content/20 group-focus-within:text-primary transition-colors" size={20} />
                             <input
                                 type="password"
                                 required
@@ -108,13 +108,13 @@ const AuthPage = ({ type }) => {
                         </button>
                     </form>
 
-                    <div className="mt-8 pt-8 border-t border-white/5 flex flex-col items-center gap-4">
-                        <p className="text-white/30 text-sm font-medium">
+                    <div className="mt-8 pt-8 border-t border-overlay/10 flex flex-col items-center gap-4">
+                        <p className="text-content/30 text-sm font-medium">
                             {isLogin ? "New to StudyVibe?" : "Already an elite?"}
                         </p>
                         <Link 
                             to={isLogin ? '/register' : '/login'} 
-                            className="flex items-center gap-2 text-white font-black tracking-tight hover:text-primary transition-colors haptic-feedback px-6 py-2 rounded-full border border-white/5 bg-white/[0.02]"
+                            className="flex items-center gap-2 text-content font-black tracking-tight hover:text-primary transition-colors haptic-feedback px-6 py-2 rounded-full border border-overlay/10 bg-overlay/40"
                         >
                             {isLogin ? 'Build Profile' : 'Access Portal'} <ArrowRight size={16} />
                         </Link>

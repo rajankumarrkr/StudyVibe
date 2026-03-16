@@ -30,16 +30,16 @@ const UploadPage = () => {
             <div className="glow-background" />
 
             <header className="mb-10 text-center">
-                <div className="inline-flex p-1.5 bg-white/5 rounded-2xl mb-8 border border-white/5">
+                <div className="inline-flex p-1.5 glass-card rounded-2xl mb-8">
                     <button 
                         onClick={() => setMode('manual')}
-                        className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all haptic-feedback ${mode === 'manual' ? 'bg-primary text-white shadow-glow' : 'text-white/30'}`}
+                        className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all haptic-feedback ${mode === 'manual' ? 'bg-primary text-white shadow-glow' : 'text-content/30'}`}
                     >
                         <Plus size={16} /> Manual
                     </button>
                     <button 
                         onClick={() => setMode('ocr')}
-                        className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all haptic-feedback ${mode === 'ocr' ? 'bg-primary text-white shadow-glow' : 'text-white/30'}`}
+                        className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all haptic-feedback ${mode === 'ocr' ? 'bg-primary text-white shadow-glow' : 'text-content/30'}`}
                     >
                         <Sparkles size={16} /> AI Photo
                     </button>
@@ -56,14 +56,14 @@ const UploadPage = () => {
                         onSubmit={handleManualSubmit} 
                         className="space-y-6"
                     >
-                        <div className="glass-card p-8 border-none bg-white/[0.02]">
-                            <h3 className="text-xl font-black text-white mb-8 flex items-center gap-2">
+                        <div className="glass-card p-8 border-none bg-overlay/40">
+                            <h3 className="text-xl font-black text-content mb-8 flex items-center gap-2">
                                 <FileText className="text-primary-300" /> New Challenge
                             </h3>
                             
                             <div className="space-y-5">
                                 <div>
-                                    <label className="block text-[10px] font-black uppercase tracking-widest text-white/30 mb-2 ml-1">Question Body</label>
+                                    <label className="block text-[10px] font-black uppercase tracking-widest text-content/30 mb-2 ml-1">Question Body</label>
                                     <textarea required value={formData.question} onChange={(e) => setFormData({...formData, question: e.target.value})} className="input-premium min-h-[140px] resize-none" placeholder="Draft your question here..." />
                                 </div>
 
@@ -86,7 +86,7 @@ const UploadPage = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-[10px] font-black uppercase tracking-widest text-white/30 mb-2 ml-1">Explanation (Optional)</label>
+                                    <label className="block text-[10px] font-black uppercase tracking-widest text-content/30 mb-2 ml-1">Explanation (Optional)</label>
                                     <textarea value={formData.explanation} onChange={(e) => setFormData({...formData, explanation: e.target.value})} className="input-premium py-3 text-sm min-h-[80px]" placeholder="Why is this answer correct?" />
                                 </div>
                             </div>
@@ -108,13 +108,13 @@ const UploadPage = () => {
                             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                             <Upload size={56} className="text-white" />
                         </div>
-                        <h2 className="text-3xl font-black text-white mb-3">Vision Scan</h2>
-                        <p className="text-white/30 font-bold max-w-xs mb-10 leading-relaxed">
+                        <h2 className="text-3xl font-black text-content mb-3">Vision Scan</h2>
+                        <p className="text-content/30 font-bold max-w-xs mb-10 leading-relaxed">
                             Upload a textbook shot. Our <span className="text-primary-300">Neural Engine</span> will extract the MCQ instantly.
                         </p>
                         
                         <input type="file" className="hidden" id="file-upload" />
-                        <label htmlFor="file-upload" className="px-10 py-5 glass-card border-primary/20 bg-primary/5 cursor-pointer transition-all font-black text-white hover:bg-primary/10 tracking-tight active:scale-95 flex items-center gap-3">
+                        <label htmlFor="file-upload" className="px-10 py-5 glass-card border-primary/20 bg-primary/5 cursor-pointer transition-all font-black text-content hover:bg-primary/10 tracking-tight active:scale-95 flex items-center gap-3">
                             <ImageIcon size={20} /> Select from Gallery
                         </label>
                     </motion.div>
