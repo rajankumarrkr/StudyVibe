@@ -14,7 +14,8 @@ const UploadPage = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:5000/api/questions', formData, {
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+            await axios.post(`${apiUrl}/questions`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert('Question added to your feed! ✨');

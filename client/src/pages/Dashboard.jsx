@@ -12,9 +12,10 @@ const Dashboard = () => {
         const fetchStats = async () => {
             const token = localStorage.getItem('token');
             try {
+                const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
                 const [dailyRes, subjectRes] = await Promise.all([
-                    axios.get('http://localhost:5000/api/stats/daily', { headers: { Authorization: `Bearer ${token}` } }),
-                    axios.get('http://localhost:5000/api/stats/subject', { headers: { Authorization: `Bearer ${token}` } })
+                    axios.get(`${apiUrl}/stats/daily`, { headers: { Authorization: `Bearer ${token}` } }),
+                    axios.get(`${apiUrl}/stats/subject`, { headers: { Authorization: `Bearer ${token}` } })
                 ]);
                 setStats(dailyRes.data);
                 setSubjectData(subjectRes.data);
